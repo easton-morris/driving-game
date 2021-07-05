@@ -1,4 +1,5 @@
 const $car = document.querySelector('.racecar');
+let $intID = null;
 
 function turnCar(event) {
   const key = event.code;
@@ -30,11 +31,18 @@ function moveCar() {
   }
 }
 
+function stopCar(event) {
+  window.clearInterval($intID);
+  $intID = null;
+}
+
 document.addEventListener('keydown', turnCar);
 
 document.addEventListener('keydown', function (event) {
-  if (event.code === 'Space') {
-    window.setInterval(moveCar, 16);
+  if (event.code === 'Space' && $intID === null) {
+    $intID = window.setInterval(moveCar, 16);
+  } else if (event.code === 'Space') {
+    stopCar();
   }
 });
 
