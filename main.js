@@ -28,6 +28,14 @@ function moveCar() {
     carY += 0.5;
     $car.setAttribute('data-y', carY);
     $car.style.top = carY + 'rem';
+  } else if (carDir === 'north') {
+    carY -= 0.5;
+    $car.setAttribute('data-y', carY);
+    $car.style.top = carY + 'rem';
+  } else if (carDir === 'west') {
+    carX -= 0.5;
+    $car.setAttribute('data-x', carX);
+    $car.style.left = carX + 'rem';
   }
 }
 
